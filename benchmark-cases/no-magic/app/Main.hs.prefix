@@ -1,0 +1,4 @@
+{-# LANGUAGE DataKinds, TypeApplications #-}
+import TypeLevel.Elem
+
+main :: IO ()

@@ -1,0 +1,17 @@
+name:                magic-typelevel-elem-benchmark
+version:             0.1
+
+ghc-options: -W -Wall
+
+dependencies:
+  - base >= 4.12 && < 5
+
+library:
+  source-dirs: src
+
+executables:
+  magic-typelevel-elem-benchmark:
+    source-dirs: app
+    main: Main
+    dependencies:
+      - magic-typelevel-elem-benchmark

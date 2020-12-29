@@ -1,0 +1,13 @@
+name:                magic-typelevel-elem
+version:             0.1
+
+ghc-options: -W -Wall -dcore-lint
+
+dependencies:
+  - base >= 4.12 && < 5
+
+library:
+  source-dirs: src
+  dependencies:
+    - magic-tyfams
+    - ghc >= 8.6.5 && < 8.7

@@ -3,3 +3,4 @@ stack.yaml.lock
 benchmark-cases/*/*.cabal
 benchmark-cases/*/.stack-work/
 benchmark-cases/*/stack.yaml.lock
+benchmark-cases/*/app/Main.hs

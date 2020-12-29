@@ -1,4 +1,5 @@
 *.cabal
+dist-newstyle/
 .stack-work/
 stack.yaml.lock
 benchmark-cases/*/*.cabal

@@ -1,4 +1,5 @@
 {-# LANGUAGE DataKinds, TypeApplications #-}
+{-# OPTIONS -freduction-depth=0 #-}
 import TypeLevel.Elem
 
 main :: IO ()

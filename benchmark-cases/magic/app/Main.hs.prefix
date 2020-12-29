@@ -1,0 +1,5 @@
+{-# LANGUAGE DataKinds, TypeApplications #-}
+{-# OPTIONS_GHC -fplugin TypeLevel.Elem.Plugin #-}
+import TypeLevel.Elem
+
+main :: IO ()

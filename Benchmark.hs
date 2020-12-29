@@ -94,6 +94,7 @@ main = do
         _ <- timeBuild 2
 
         -- run the benchmark
+        putStrLn caseName
         for_ [100,200..2000] $ \n -> do
           t <- timeBuild n
           print (n, t)

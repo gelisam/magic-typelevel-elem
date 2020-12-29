@@ -1,17 +1,13 @@
-name:                typelevel-elem
+name:                magic
 version:             0.1
 
 ghc-options: -W -Wall
 
 dependencies:
   - base >= 4.12 && < 5
-
-library:
-  source-dirs: src
+  - magic-typelevel-elem
 
 executables:
-  no-magic:
+  magic:
     source-dirs: app
     main: Main
-    dependencies:
-      - typelevel-elem

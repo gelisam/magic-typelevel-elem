@@ -4,7 +4,7 @@ version:             0.1
 ghc-options: -W -Wall -dcore-lint
 
 dependencies:
-  - base >= 4.12 && < 5
+  - base
 
 library:
   source-dirs: src

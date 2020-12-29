@@ -8,6 +8,7 @@ build-depends: base
              , lens-aeson
              , stm
              , text
+             , time
              , typed-process
              , yaml
 -}
@@ -17,8 +18,8 @@ import Control.Concurrent.STM (STM)
 import Control.Lens ((&), (.~))
 import Data.ByteString.Lazy (ByteString)
 import Data.Text.Lazy (Text)
+import Data.Time.Clock
 import Data.Foldable (for_)
-import System.CPUTime (getCPUTime)
 import System.Directory (createDirectory, removeDirectoryRecursive)
 import System.Environment (getArgs, getProgName)
 import System.Exit (ExitCode(ExitFailure, ExitSuccess))
@@ -78,7 +79,7 @@ main = do
 
         let timeBuild :: Int -> IO Double
             timeBuild n = do
-              startTime <- getCPUTime
+              startTime <- getCurrentTime
               mainPrefix <- lines <$> readFile mainPrefixPath
               let mainSuffix =
                     [ "main = pure (unit @" ++ show n ++ " @'" ++ show [1..n] ++ ")"
@@ -86,8 +87,8 @@ main = do
               let mainCode = mainPrefix ++ mainSuffix
               writeFile mainPath (unlines mainCode)
               Process.runProcess_ processConfig
-              finishTime <- getCPUTime
-              pure $ fromIntegral (finishTime - startTime) / 1000000000000
+              finishTime <- getCurrentTime
+              pure $ realToFrac  (diffUTCTime finishTime startTime)
 
         -- warm the cache
         _ <- timeBuild 2

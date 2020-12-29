@@ -5,6 +5,10 @@ module TypeLevel.Elem.Plugin (plugin) where
 import GhcPlugins
 import Plugin.MagicTyFam (magicTyFamPlugin, withStuckSemantics)
 
+-- trace-debugging:
+--import Debug.Trace
+----traceShow ("foo", showSDocUnsafe $ ppr foo)
+
 
 asList :: Type -> Maybe [Type]
 asList t = do
@@ -12,7 +16,7 @@ asList t = do
   if | tyCon == promotedNilDataCon -> do
          pure []
      | tyCon == promotedConsDataCon -> do
-         [hd, tl] <- pure args
+         [_k, hd, tl] <- pure args
          (hd :) <$> asList tl
      | otherwise -> do
          Nothing
